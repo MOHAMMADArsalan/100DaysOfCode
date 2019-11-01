@@ -14,19 +14,17 @@ function isSubstring(s1, s2) {
   }
 
   const firstChar = s1[0];
-  let s2Part1 = '';
-  let s2Part2 = '';
-
+  let startIndex = 0;
   for (let i = 0; i < s2.length; i++) {
     if (s2[i] === firstChar) {
-      s2Part1 = s2.slice(i);
-      s2Part2 = s2.slice(0, i);
+      startIndex = i;
       break;
     }
   }
-  return s1 === s2Part1 + s2Part2;
+
+  return s1 === ( s2.slice(startIndex) + s2.slice(0, startIndex) );
 }
 
-console.log( isSubstring('waterbottle','erbottlewat'))
-console.log( isSubstring('waterbottle','erbottleat'))
-console.log( isSubstring('abc','cab'))
+console.log(isSubstring('waterbottle', 'erbottlewat'));
+console.log(isSubstring('waterbottle', 'erbottleat'));
+console.log(isSubstring('abc', 'cab'));
