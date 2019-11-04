@@ -65,23 +65,44 @@ function sumListReverse(list1, list2) {
 }
 
 //(7-> 1 -> 6) + (5 -> 9 -> 2) .Thatis,617 + 295.
+// const list1 = {
+//   data: 7,
+//   next: {
+//     data: 1,
+//     next: {
+//       data: 6,
+//       next: null,
+//     },
+//   },
+// };
 const list1 = {
-  data: 7,
+  data: 9,
   next: {
-    data: 1,
+    data: 7,
     next: {
-      data: 6,
+      data: 8,
       next: null,
     },
   },
 };
 
+// const list2 = {
+//   data: 5,
+//   next: {
+//     data: 9,
+//     next: {
+//       data: 2,
+//       next: null,
+//     },
+//   },
+// };
+
 const list2 = {
-  data: 5,
+  data: 6,
   next: {
-    data: 9,
+    data: 8,
     next: {
-      data: 2,
+      data: 5,
       next: null,
     },
   },

@@ -30,11 +30,18 @@ function sumListReverse(list1, list2) {
       list2 = list2.next;
     }
   }
+
+  let length = num1.length > num2.length ? num1.length : num2.length;
   let result = Number(num1) + Number(num2);
   let str = result.toString();
   let i = 0;
-  while (i < str.length) {
-    let newList = new Node(str[i]);
+  while (i < length) {
+    let sliceValue = length - i;
+    let _str =
+      i === length - 1
+        ? str.slice(0, i)
+        : str.slice(sliceValue, sliceValue + 1);
+    let newList = new Node(_str);
     if (sumList === null) {
       sumList = newList;
     } else {
@@ -50,22 +57,23 @@ function sumListReverse(list1, list2) {
 
 //(7-> 1 -> 6) + (5 -> 9 -> 2) .Thatis,617 + 295.
 const list1 = {
-  data: 7,
+  data: 9,
   next: {
-    data: 1,
+    data: 7,
     next: {
-      data: 6,
+      data: 8,
       next: null,
     },
   },
 };
 
+//Does your algorithm work on linked lists like 9->7->8 and 6->8->5? Double check that.
 const list2 = {
-  data: 5,
+  data: 6,
   next: {
-    data: 9,
+    data: 8,
     next: {
-      data: 2,
+      data: 5,
       next: null,
     },
   },
