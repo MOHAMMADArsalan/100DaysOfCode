@@ -16,33 +16,49 @@ const Node = function(data) {
   this.data = data;
   this.next = null;
 };
+
 function sumListReverse(list1, list2) {
-  let num1 = '',
-    num2 = '';
+  let num1 = 0,
+    num2 = 0,
+    carry = 0;
   let sumList = null;
   while (list1 !== null || list2 !== null) {
     if (list1 !== null) {
-      num1 = list1.data + num1;
+      num1 = list1.data;
       list1 = list1.next;
+    } else {
+      num1 = 0;
     }
+
     if (list2 !== null) {
-      num2 = list2.data + num2;
+      num2 = list2.data;
       list2 = list2.next;
+    } else {
+      num2 = 0;
+    }
+
+    const result = num1 + num2 + carry;
+    carry = result > 9 ? 1 : 0;
+    const val = result % 10;
+
+    if (list1 === null && list2 === null) {
+      insert(result);
+    } else {
+      insert(val);
     }
   }
-  let result = Number(num1) + Number(num2);
-  let str = result.toString();
-  let i = 0;
-  while (i < str.length) {
-    let newList = new Node(str[i]);
+
+  function insert(data) {
+    let newNode = new Node(data);
     if (sumList === null) {
-      sumList = newList;
-    } else {
-      let tem = sumList;
-      sumList = newList;
-      sumList.next = tem;
+      return (sumList = newNode);
     }
-    i++;
+    var current = sumList;
+    while (current.next !== null) {
+      current = sumList.next;
+    }
+
+    current.next = newNode;
   }
 
   return sumList;
@@ -71,7 +87,7 @@ const list2 = {
   },
 };
 // const list2 = {
-//   data: 5,
+//   data: 3,
 //   next: null,
 // };
 
