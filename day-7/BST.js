@@ -36,6 +36,13 @@ function BST() {
     }
   }
 
+  function inOrder(node) {
+    if (node !== null) {
+      inOrder(node.left);
+      console.log(node.data);
+      inOrder(node.right);
+    }
+  }
 }
 
 var bst = new BST();
@@ -43,4 +50,4 @@ bst.insert(5);
 bst.insert(4);
 bst.insert(6);
 console.log(bst.root);
-
+bst.inOrder(bst.root)
