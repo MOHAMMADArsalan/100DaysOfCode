@@ -9,6 +9,7 @@ function BST() {
   this.insert = insert;
   this.inOrder = inOrder;
   this.postOrder = postOrder;
+  this.preOrder = preOrder;
 
   function insert(data) {
     let newNode = new Node(data);
@@ -47,9 +48,17 @@ function BST() {
 
   function postOrder(node) {
     if (node !== null) {
-      inOrder(node.left);
-      inOrder(node.right);
+      postOrder(node.left);
+      postOrder(node.right);
       console.log(node.data);
+    }
+  }
+
+  function preOrder(node) {
+    if (node !== null) {
+      console.log(node.data);
+      preOrder(node.left);
+      preOrder(node.right);
     }
   }
 }
@@ -60,3 +69,7 @@ bst.insert(4);
 bst.insert(6);
 console.log(bst.root);
 bst.inOrder(bst.root);
+console.log("======================================")
+bst.postOrder(bst.root);
+console.log("======================================")
+bst.preOrder(bst.root);
