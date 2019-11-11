@@ -11,6 +11,8 @@ function BST() {
   this.postOrder = postOrder;
   this.preOrder = preOrder;
   this.min = min;
+  this.max = max;
+
   function insert(data) {
     let newNode = new Node(data);
     if (this.root === null) {
@@ -70,6 +72,14 @@ function BST() {
     return current.data;
   }
 
+  function max() {
+    let current = this.root;
+
+    while (current.right !== null) {
+      current = current.right;
+    }
+    return current.data;
+  }
 }
 
 var bst = new BST();
@@ -83,10 +93,15 @@ bst.insert(100);
 
 console.log(bst.root);
 bst.inOrder(bst.root);
+
 console.log('======================================');
 bst.postOrder(bst.root);
+
 console.log('======================================');
 bst.preOrder(bst.root);
-console.log('======================================');
 
-console.log(bst.min())
+console.log('======================================');
+console.log(bst.min());
+
+console.log('======================================');
+console.log(bst.max());
