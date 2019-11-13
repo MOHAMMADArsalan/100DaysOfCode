@@ -10,6 +10,7 @@ function BST() {
   this.inOrder = inOrder;
   this.postOrder = postOrder;
   this.preOrder = preOrder;
+  this.remove = remove;
   this.find = find;
   this.min = min;
   this.max = max;
@@ -99,6 +100,49 @@ function BST() {
 
     return current;
   }
+
+  function getSmallest(node) {
+    let current = node;
+    while (current.left !== null) {
+      current = current.left;
+    }
+    return current;
+  }
+
+  function removeNode(node, data) {
+    if (node === null) {
+      return null;
+    }
+
+    if (data === node.data) {
+      if (node.left === null && node.right === null) {
+        return null;
+      }
+
+      if (node.left === null) {
+        return node.right;
+      }
+
+      if (node.right === null) {
+        return node.left;
+      }
+
+      let tempNode = getSmallest(node.right);
+      node.data = tempNode.data;
+      node.right = removeNode(node.right, tempNode.data);
+      return node;
+    } else if (data < node.data) {
+      node.left = removeNode(node.left, data);
+      return node;
+    } else {
+      node.right = removeNode(node.right, data);
+      return node;
+    }
+  }
+
+  function remove(data) {
+    return this.root = removeNode(this.root, data);
+  }
 }
 
 var bst = new BST();
@@ -109,7 +153,6 @@ bst.insert(2);
 bst.insert(3);
 bst.insert(1);
 bst.insert(100);
-
 
 bst.inOrder(bst.root);
 
@@ -124,6 +167,10 @@ console.log(bst.min());
 
 console.log('======================================');
 console.log(bst.max());
+console.log('======================================');
+console.log(bst.find(3));
+console.log('======================================');
+console.log(bst.remove(3));
 console.log('======================================');
 console.log(bst.find(3));
 
