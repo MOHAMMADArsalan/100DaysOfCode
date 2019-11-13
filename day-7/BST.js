@@ -10,6 +10,7 @@ function BST() {
   this.inOrder = inOrder;
   this.postOrder = postOrder;
   this.preOrder = preOrder;
+  this.find = find;
   this.min = min;
   this.max = max;
 
@@ -80,6 +81,24 @@ function BST() {
     }
     return current.data;
   }
+
+  function find(data) {
+    let current = this.root;
+
+    while (current.data !== data) {
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+
+      if (current === null) {
+        return null;
+      }
+    }
+
+    return current;
+  }
 }
 
 var bst = new BST();
@@ -91,7 +110,7 @@ bst.insert(3);
 bst.insert(1);
 bst.insert(100);
 
-console.log(bst.root);
+
 bst.inOrder(bst.root);
 
 console.log('======================================');
@@ -105,3 +124,7 @@ console.log(bst.min());
 
 console.log('======================================');
 console.log(bst.max());
+console.log('======================================');
+console.log(bst.find(3));
+
+console.log(JSON.stringify(bst.root, undefined, 4));
