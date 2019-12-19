@@ -85,6 +85,21 @@ class BST {
     node.left = node.right;
     node.right = temp;
   }
+
+  depth () {
+    return this.depthBST(this.root);
+  }
+
+  depthBST (node) {
+    if (node == null) {
+      return -1
+    }
+    const left = this.depthBST(node.left) + 1;
+    const right = this.depthBST(node.right) + 1
+
+    return Math.max(left, right)
+
+  }
 }
 
 const bst = new BST();
@@ -98,3 +113,4 @@ console.log(JSON.stringify(bst.root, undefined, 4))
 console.log(bst.breathFirstSearch())
 bst.mirror()
 console.log(JSON.stringify(bst.root, undefined, 4))
+console.log(bst.depth())
