@@ -68,6 +68,23 @@ class BST {
       }
     }
   }
+
+  mirror () {
+    this.mirrorBST(this.root)
+  }
+
+  mirrorBST (node) {
+    if (node === null) {
+      return null
+    }
+
+    this.mirrorBST(node.left);
+    this.mirrorBST(node.right)
+
+    const temp = node.left;
+    node.left = node.right;
+    node.right = temp;
+  }
 }
 
 const bst = new BST();
@@ -79,3 +96,5 @@ bst.insert(4)
 bst.insert(5)
 console.log(JSON.stringify(bst.root, undefined, 4))
 console.log(bst.breathFirstSearch())
+bst.mirror()
+console.log(JSON.stringify(bst.root, undefined, 4))
