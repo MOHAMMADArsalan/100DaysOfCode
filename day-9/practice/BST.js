@@ -42,6 +42,9 @@ class BST {
   }
 
   searchNode (node, key) {
+    if (node === null) {
+      return null
+    }
     if (node.key > key) {
       return this.searchNode(node.left, key)
     } else if (node.key < key) {
@@ -74,6 +77,26 @@ class BST {
       console.log(node.key)
     }
   }
+
+  min () {
+    let current = this.root;
+
+    while (current.left !== null) {
+      current = current.left;
+    }
+
+    return current.key
+  }
+
+  max () {
+    let current = this.root;
+
+    while (current.right !== null) {
+      current = current.right;
+    }
+
+    return current.key
+  }
 }
 
 
@@ -85,3 +108,4 @@ console.log(JSON.stringify(bst.root, undefined, 4))
 console.log(JSON.stringify(bst.search(2)))
 console.log(JSON.stringify(bst.search(3)))
 console.log(JSON.stringify(bst.search(1)))
+console.log(bst.min())
