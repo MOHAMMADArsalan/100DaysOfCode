@@ -50,6 +50,30 @@ class BST {
       return node;
     }
   }
+
+  inOrder (node) {
+    if (node !== null) {
+      this.inOrder(node.left)
+      console.log(node.key);
+      this.inOrder(node.right)
+    }
+  }
+
+  preOrder (node) {
+    if (node !== null) {
+      console.log(node.key)
+      this.preOrder(node.left);
+      this.preOrder(node.right)
+    }
+  }
+
+  postOrder (node) {
+    if (node !== null) {
+      this.postOrder(node.left);
+      this.postOrder(node.right);
+      console.log(node.key)
+    }
+  }
 }
 
 
