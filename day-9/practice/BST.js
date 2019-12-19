@@ -1,3 +1,21 @@
+class Queue {
+  constructor() {
+    this.queue = [];
+  }
+
+  enqueue (data) {
+    this.queue.push(data)
+  }
+
+  dequeue () {
+    return this.queue.shift();
+  }
+
+  isEmpty () {
+    return this.queue.length === 0;
+  }
+}
+
 class Node {
   constructor(key) {
     this.key = key;
@@ -97,6 +115,23 @@ class BST {
 
     return current.key
   }
+
+  breathFirstSearch(){
+    let quere = new Queue();
+    quere.enqueue(this.root);
+
+    while (!quere.isEmpty()) {
+      let current = quere.dequeue();
+      console.log(current.key)
+      if (current.left !== null) {
+        quere.enqueue(current.left)
+      }
+
+      if (current.right !== null) {
+        quere.enqueue(current.right)
+      }
+    }
+  }
 }
 
 
@@ -104,8 +139,9 @@ const bst = new BST();
 bst.insert(2)
 bst.insert(1)
 bst.insert(3)
-console.log(JSON.stringify(bst.root, undefined, 4))
-console.log(JSON.stringify(bst.search(2)))
-console.log(JSON.stringify(bst.search(3)))
-console.log(JSON.stringify(bst.search(1)))
-console.log(bst.min())
+// console.log(JSON.stringify(bst.root, undefined, 4))
+// console.log(JSON.stringify(bst.search(2)))
+// console.log(JSON.stringify(bst.search(3)))
+// console.log(JSON.stringify(bst.search(1)))
+// console.log(bst.min())
+bst.breathFirstSearch()
