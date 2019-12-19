@@ -9,7 +9,7 @@ function printAllNodeWithInRange (node, low, high) {
   if (node.key >= low && node.key <= high) {
     console.log(node);
   }
-  if (high > node.key) {
+  if (high >= node.key) {
     this.printAllNodeWithInRange(node.right, low, high)
   }
 }
