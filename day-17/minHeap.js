@@ -79,15 +79,17 @@ class MinHeap {
 
 
 const minHeap = new MinHeap();
-minHeap.insert(10)
-minHeap.insert(4)
-minHeap.insert(6)
-minHeap.insert(5)
-minHeap.insert(3)
+// minHeap.insert(10)
+// minHeap.insert(4)
+// minHeap.insert(6)
+// minHeap.insert(5)
+// minHeap.insert(3)
 
-minHeap.insert(2)
-minHeap.insert(1)
-minHeap.insert(60)
-console.log(minHeap.heap)
-minHeap.remove();
-console.log(minHeap.heap)
+// minHeap.insert(2)
+// minHeap.insert(1)
+// minHeap.insert(60)
+// console.log(minHeap.heap)
+// minHeap.remove();
+// console.log(minHeap.heap)
+
+module.exports = MinHeap;

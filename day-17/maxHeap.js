@@ -79,15 +79,17 @@ class MaxHeap {
 
 
 const maxHeap = new MaxHeap();
-maxHeap.insert(10)
-maxHeap.insert(4)
-maxHeap.insert(6)
-maxHeap.insert(5)
-maxHeap.insert(3)
+// maxHeap.insert(10)
+// maxHeap.insert(4)
+// maxHeap.insert(6)
+// maxHeap.insert(5)
+// maxHeap.insert(3)
 
-maxHeap.insert(2)
-maxHeap.insert(1)
-maxHeap.insert(60)
-console.log(maxHeap.heap)
-maxHeap.remove();
-console.log(maxHeap.heap)
+// maxHeap.insert(2)
+// maxHeap.insert(1)
+// maxHeap.insert(60)
+// console.log(maxHeap.heap)
+// maxHeap.remove();
+// console.log(maxHeap.heap)
+
+module.exports = MaxHeap;
