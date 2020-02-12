@@ -1,6 +1,10 @@
 function binarySearch (array, n) {
-  if (array.length <= 1) {
+  if (array.length < 1) {
     return null;
+  }
+
+  if(array[0] !== n && array.length === 1) {
+    return null
   }
   if(array[0] === n || array[array.length - 1] === n) {
     return n
